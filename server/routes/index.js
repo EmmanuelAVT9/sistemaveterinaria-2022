@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
     'index',
     // Este es el View-Model
     {
-      title: 'Express',
+      title: 'Sistema para Agendar Citas de Pacientes de un Veterinaria🦴🐩',
       author: 'Emmanuel Vazquez',
       emojie,
     }
