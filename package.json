@@ -9,7 +9,8 @@
     "clean:server": "rm -rf dist",
     "clean:client": "rimraf public/javascripts/bundle.js && rimraf public/stylesheets/styles.cssst",
     "build:s": "npm run clean:client && babel ./server --out-dir dist --copy-files",
-    "build:client": "npm run clean:client && webpack --config ./webpack.config.js --mode production"
+    "build:client": "npm run clean:client && webpack --config ./webpack.config.js --mode production",
+    "lint-server": "eslint ./server"
   },
   "dependencies": {
     "app-root-path": "^3.0.0",
