@@ -26,6 +26,8 @@ import morgan from 'morgan';
 import webpack from 'webpack';
 import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
+// Importando configurador de plantillas
+import templateEngineConfigurator from './config/templateEngine';
 import indexRouter from './routes/index';
 // var usersRouter = require('./routes/users');
 import usersRouter from './routes/users';
@@ -86,8 +88,7 @@ if (nodeEnv === 'development') {
 
 // Configuración del motor de plantilla (template Engine)
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+templateEngineConfigurator(app);
 
 app.use(morgan('dev', { stream: winston.stream }));
 app.use(express.json());
