@@ -19,7 +19,7 @@ import cookieParser from 'cookie-parser';
 
 // maneja el log de peticiones http
 // var logger = require('morgan');
-import logger from 'morgan';
+import morgan from 'morgan';
 
 // las rutass
 // var indexRouter = require ('./routes/index');
@@ -31,6 +31,9 @@ import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 // var aboutRouter = require ('./routes/about');
 import aboutRouter from './routes/about';
+
+// Importando nuestro logger
+import winston from './config/winston';
 
 // Importando modulos de webpack
 // Nucleo de webpack
@@ -86,7 +89,7 @@ if (nodeEnv === 'development') {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-app.use(logger('dev'));
+app.use(morgan('dev', { stream: winston.stream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
