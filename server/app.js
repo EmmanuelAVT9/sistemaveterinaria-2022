@@ -25,6 +25,8 @@ import logger from 'morgan';
 import indexRouter from './routes/index';
 // var usersRouter = require('./routes/users');
 import usersRouter from'./routes/users';
+//var aboutRouter = require ('./routes/about');
+import aboutRouter from'./routes/about';
 
 const app = express();
 
@@ -36,11 +38,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+//Middleware de archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/about', aboutRouter);
 
+//ctrl + k + c  ---------Sirve para comenatr en bloque
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404));
