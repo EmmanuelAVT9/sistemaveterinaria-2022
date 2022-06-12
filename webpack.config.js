@@ -19,7 +19,7 @@ module.exports = {
     static: path.join(__dirname, "public"),
     // 3.2 Puerto del servidor de desarrollo
     // de WP (Webpack)
-    port: 8080,
+    port: 8081,
     // 3.3 Definiendo host
     host: "localhost"
   },
