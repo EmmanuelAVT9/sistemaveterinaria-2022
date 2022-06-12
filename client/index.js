@@ -1,29 +1,31 @@
+/* eslint-disable no-console */
+
 // Incorporando estilos
 // a mi bundle
-import './styles/style.css'
-import './styles/mystyle.css'
+import './styles/style.css';
+import './styles/mystyle.css';
 
-console.log("🎁 Front-End Working!!!");
+console.log('🎁 Front-End Working!!!');
 
 // Default parameters ES6/2015
-let show = (m = "😝") => {
-    console.log(m);
-  };
-  show();
+const show = (m = '😝') => {
+  console.log(m);
+};
+show();
 
-  // Promises ES06
-  function resolveAfter2Seconds() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve("function resolve");
-      }, 10000);
-    });
-  }
+// Promises ES06
+function resolveAfter2Seconds() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('function resolve');
+    }, 10000);
+  });
+}
 
-  async function asyncCall() {
-    console.log("Calling async function!!!");
-    const result = await resolveAfter2Seconds();
-    console.log(result); // Imprime "function resolve" en la consola
-  }
+async function asyncCall() {
+  console.log('Calling async function!!!');
+  const result = await resolveAfter2Seconds();
+  console.log(result); // Imprime "function resolve" en la consola
+}
 
-  asyncCall(); 
+asyncCall();
