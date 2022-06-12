@@ -1,13 +1,32 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+// Preámbulos Ayuda a manejar errores http
+// Ayuda a manejar errores http
+import createError from 'http-errors';
+// var createError = require('http-errors');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// Ayuda a crear seridores web
+// var express = require('express');
+import express from 'express';
 
-var app = express();
+// nucleo de node, ayuda al manejo de las rutas
+// var path = require('path');
+import path from 'path';
+
+// ayuda al manejo de cookies
+// var cookieParser = require('cookie-parser');
+import cookieParser from 'cookie-parser';
+
+// maneja el log de peticiones http
+// var logger = require('morgan');
+import logger from 'morgan';
+
+
+// las rutass
+// var indexRouter = require ('./routes/index');
+import indexRouter from './routes/index';
+// var usersRouter = require('./routes/users');
+import usersRouter from'./routes/users';
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,12 +42,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -38,4 +57,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+//exportando instancia de app.js
+//usando javascript moderno
+export default app;
