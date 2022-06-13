@@ -9,18 +9,9 @@
     <link rel='stylesheet' href='/stylesheets/styles.css' />
   </head>
   <body>
-    {{{body}}}
-     <nav>
-      <div class="container">
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo">🦮🐩Sistema Veterinaria</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/about">Acerca de...</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    {{!-- Llamando a la vista parcial de la navbar  --}}
+    {{> _navbar}}
+    
     <div class="container">
       {{{body}}}
     </div>
