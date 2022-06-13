@@ -28,12 +28,9 @@ import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
 // Importando configurador de plantillas
 import templateEngineConfigurator from './config/templateEngine';
-import indexRouter from './routes/index';
-// var usersRouter = require('./routes/users');
-import usersRouter from './routes/users';
-// var aboutRouter = require ('./routes/about');
-import aboutRouter from './routes/about';
 
+// Importando enrutador principal
+import router from './routes/router';
 // Importando nuestro logger
 import winston from './config/winston';
 
@@ -97,9 +94,7 @@ app.use(cookieParser());
 // Middleware de archivos estáticos
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/about', aboutRouter);
+router.addRoutes(app);
 
 // ctrl + k + c  ---------Sirve para comenatr en bloque
 // catch 404 and forward to error handler
