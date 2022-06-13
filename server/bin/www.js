@@ -16,9 +16,6 @@ import winston from '../config/winston';
 // IMportando el objeto de las llaves de configuracion
 import configKeys from '../config/configKeys';
 
-// Creando una instancia de debugger
-const debug = Debug('p01-projnotes:server');
-
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -39,6 +36,9 @@ function normalizePort(val) {
   return false;
 }
 
+// Creando una instancia de debugger
+const debug = Debug('p01-projnotes:server');
+
 /**
  * Get port from environment and store in Express.
  */
@@ -47,7 +47,12 @@ const port = normalizePort(configKeys.port || '5000');
 // app es una instancia de ExpressJs [ NODE ]
 app.set('port', port);
 
-const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
+/**
+ * Create HTTP server.
+ */
+
+const server = http.createServer(app); // (req, res, next, err)
+// => {}      "app es u gran callback"
 
 /**
  * Event listener for HTTP server "error" event.
@@ -58,6 +63,8 @@ function onError(error) {
     throw error;
   }
 
+  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
+  
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
@@ -74,23 +81,16 @@ function onError(error) {
 }
 
 /**
- * Create HTTP server.
- */
-
-const server = http.createServer(app); // (req, res, next, err)
-// => {}      "app es u gran callback"
-
-/**
  * Event listener for HTTP server "listening" event.
  */
 
 function onListening() {
   const addr = server.address();
-  const bindAdress =
-    typeof addr === 'string' ? `pipe ${addr} ` : `port ${addr.port}`;
-  debug(`Listening on ${bindAdress}`);
+  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
+  debug(`Listening on ${bind}`);
   winston.info(`✍ Servidor escuchando 🤖.. en ${app.get('port')}`);
 }
+
 
 /**
  * Listen on provided port, on all network interfaces.
