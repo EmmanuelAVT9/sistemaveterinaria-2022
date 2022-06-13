@@ -13,6 +13,8 @@ import http from 'http';
 
 // Importando nuestro logger
 import winston from '../config/winston';
+// IMportando el objeto de las llaves de configuracion
+import configKeys from '../config/configKeys';
 
 // Creando una instancia de debugger
 const debug = Debug('p01-projnotes:server');
@@ -41,7 +43,7 @@ function normalizePort(val) {
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(configKeys.port || '5000');
 // app es una instancia de ExpressJs [ NODE ]
 app.set('port', port);
 
