@@ -15,9 +15,10 @@ const ProjectSchema = new Schema({
     type: String,
     required: true,
   },
-  date: {
+  citafecha: {
     type: Date,
     default: Date.now,
+    required: true,
   },
 });
 

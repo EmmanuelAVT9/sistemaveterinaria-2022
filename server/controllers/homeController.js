@@ -17,7 +17,7 @@ const index = (req, res) => {
     emojieDataset[Math.floor(Math.random() * emojieDataset.length)];
   // View-Models
   const viewModel = {
-    title: 'Index Controller Working!!!',
+    title: 'Sistema Veterinaria',
     author: 'Emmanuel Vázquez',
     emojie,
   };

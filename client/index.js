@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // lateral
   const sideNavs = document.querySelectorAll('.sidenav');
   M.Sidenav.init(sideNavs);
-  
+
   /* Inicializando los dropdown */
   const dropdowns = document.querySelectorAll('.dropdown-trigger');
   M.Dropdown.init(dropdowns);

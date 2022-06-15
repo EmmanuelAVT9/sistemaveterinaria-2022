@@ -11,7 +11,7 @@
         <div class="card-content">
           <div class="input-field">
             <label for="project-name">
-              Nombre Dueñi
+              Nombre del Dueño
             </label>
             <input
               placeholder="Ingrese el nombre del Dueño"
@@ -19,11 +19,41 @@
               id="project-name"
               name="name"
               class="validate"
+              value="{{project.name}}"
+              required
             />
+            <span 
+              class="helper-text" 
+              data-error="Debe ingresar nombre del Dueño"
+              data-success="Correcto"></span>
+            {{#if errorModel.nameError}}
+            <span style="color: red">Error: {{errorModel.nameError}}</span>
+            {{/if}}
+          </div>
+          <div class="input-field">
+            <label for="project-name">
+              Fecha de Cita
+            </label>
+            <input
+              placeholder="Ingrese el nombre del Dueño"
+              type="date"
+              id="cita-fecha"
+              name="citafecha"
+              class="validate"
+              value="{{project.citafecha}}"
+              required
+            />
+            <span 
+              class="helper-text" 
+              data-error="Debe ingresar fecha de cita"
+              data-success="Correcto"></span>
+            {{#if errorModel.nameError}}
+            <span style="color: red">Error: {{errorModel.nameError}}</span>
+            {{/if}}
           </div>
           <div class="input-field">
             <label for="project-description">
-              Sintomas Mascota
+              Síntomas Mascota
             </label>
             <textarea
               name="description"
@@ -46,4 +76,4 @@
       </form>
     </div>
   </div>
-</div> 
+</div>

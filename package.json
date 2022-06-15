@@ -7,7 +7,7 @@
     "dev": "babel-watch ./server/bin/www",
     "client:server": "SET NODE_ENV=development && webpack serve --config ./webpack.dev.config.js --mode development",
     "clean:server": "rm -rf dist",
-    "clean:client": "rimraf public/javascripts/bundle.js && rimraf public/stylesheets/styles.cssst",
+    "clean:client": "rimraf public/javascripts/bundle.js && rimraf public/stylesheets/styles.css",
     "build:s": "npm run clean:client && babel ./server --out-dir dist --copy-files",
     "build:client": "npm run clean:client && webpack --config ./webpack.config.js --mode production",
     "lint-server": "eslint ./server",
